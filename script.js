@@ -45,7 +45,7 @@ function initMap() {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
     ],
     [
-      "Science Hall",
+      "Richardson Hall of Science",
       40.205638937901476,
       -80.56096129301824,
       "icons8-atom-100.png",
@@ -54,7 +54,7 @@ function initMap() {
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus"
     ],
     [
-      "Wellness Center",
+      "Health and Wellness Center",
       40.20541881270227,
       -80.56342335652832,
       "icons8-swimming-100.png",
@@ -72,7 +72,7 @@ function initMap() {
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt."
     ],
     [
-      "Arts Center",
+      "Steinman Fine Arts Center",
       40.20658713970493,
       -80.55907245923623,
       "icons8-krita-100.png",
@@ -88,7 +88,98 @@ function initMap() {
       90,
       90,
       "Welcome to Bethany College!"
+    ],
+    [
+      "Hoag Soccer Field",
+      40.20226299388096,
+      -80.56546549660865,
+      "icons8-soccer-ball-100.png",
+      70,
+      70,
+      "Hoag Soccer Field"
+    ],
+    [
+      "Bison Stadium",
+      40.2038374090133,
+      -80.56609951812203,
+      "icons8-american-football-ball-100.png",
+      70,
+      70,
+      "Bison Stadium"
+    ],
+    [
+      "Bison Softball Field",
+      40.2037311939913,
+      -80.56432141169445,
+      "icons8-baseball-100.png",
+      70,
+      70,
+      "Bison Softball Field"
+    ],
+    [
+      "Hummel Field House",
+      40.20475003928364,
+      -80.56568918854151,
+      "icons8-basketball-net-100.png",
+      70,
+      70,
+      "Basketball Court"
+    ],
+    [
+      "Parking Coal Bowl",
+      40.206115799497255,
+      -80.5623772158248,
+      "icons8-parking-ticket-100.png",
+      70,
+      70,
+      "Parking Lot"
+    ],
+    [
+      "Harlan Hall",
+      40.204803743935734,
+      -80.56112780590456,
+      "icons8-city-100.png",
+      70,
+      70,
+      "Student Dorm"
+    ],
+    [
+      "Judith R. Hurl Education Center",
+      40.20771909749787,
+      -80.55604903625049,
+      "icons8-education-100.png",
+      70,
+      70,
+      "Educational Center"
+    ],
+    [
+      "Bethany House",
+      40.20541573732268,
+      -80.55776178523949,
+      "icons8-opened-folder-100.png",
+      70,
+      70,
+      "Administrative Center"
+    ],
+    [
+      "Ogden Dining Hall",
+      40.205883770657785,
+      -80.55806578439638,
+      "icons8-tableware-100.png",
+      70,
+      70,
+      "Dining & Student Spaces"
+    ],
+    [
+      "Bethany Park",
+      40.2021124004575,
+      -80.5529848825885,
+      "icons8-path-100.png",
+      70,
+      70,
+      "Park"
     ]
+
   ];
 
   for (let i=0; i<markers.length; i++){
@@ -188,6 +279,4 @@ window.initMap = initMap;
 // }
 
 // initMap();
-
-
 
