@@ -21,3 +21,20 @@ body {
     position: relative;
     border: 2px solid blanchedalmond;
 }
+
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #00819d;
+    border: 3px solid #4C8500;
+    border-radius: 50%;
+    width: 100%;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+    /* margin-top: 20px; */
+}
