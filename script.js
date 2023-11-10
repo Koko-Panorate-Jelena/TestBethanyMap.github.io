@@ -27,12 +27,23 @@
 //   });
 
 function initMap() {
+
+  const directionsRenderer = new google.maps.DirectionsRenderer();
+  const directionsService = new google.maps.DirectionsService();
+
   const myLatLng = { lat: 40.20502830903152, lng: -80.55853842938608 };
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 17,
     mapId: "fe1884329fa294ee",
     center: myLatLng,
   });
+
+  directionsRenderer.setMap(map);
+  calculateAndDisplayRoute(directionsService, directionsRenderer);
+  document.getElementById("mode").addEventListener("change", () => {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  });
+
 
   const markers = [
     [
@@ -57,7 +68,7 @@ function initMap() {
       "Health and Wellness Center",
       40.20541881270227,
       -80.56342335652832,
-      "icons8-swimming-100.png",
+      "icons8-health-100.png",
       70,
       70,
       "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish."
@@ -182,6 +193,10 @@ function initMap() {
 
   ];
 
+
+  var currentInfoWindow = null;
+
+
   for (let i=0; i<markers.length; i++){
     const currMarker = markers[i];
     const marker = new google.maps.Marker({
@@ -192,22 +207,64 @@ function initMap() {
         scaledSize: new google.maps.Size(currMarker[4], currMarker[5])
       },
       title: currMarker[0],
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.BOUNCE
+      // optimized: true
+      // label: "Name of the building"
     });
   
     const infowindow = new google.maps.InfoWindow ({
       content: currMarker[6],
     });
   
+    // marker.addListener("click", () => {
+    //   infowindow.open(map,marker);
+    // });
+
     marker.addListener("click", () => {
-      infowindow.open(map,marker);
+      if (currentInfoWindow) {
+        currentInfoWindow.close();
+      }
+      infowindow.open (map, marker);
+      currentInfoWindow = infowindow;
     });
+
+    setTimeout (() => {
+      marker.setAnimation (null);
+    }, 3000
+    )
   }
+
+  google.maps.event.addListener(map, 'click', function () {
+    if (currentInfoWindow) {
+      currentInfoWindow.close();
+      currentInfoWindow = null;
+    }
+  });
+  
 
 
 }
 
+function calculateAndDisplayRoute(directionsService, directionsRenderer){
+  const selectedMode = document.getElementById("mode").value;
+
+  directionsService
+  .route({
+    origin: document.getElementById("from").value,
+    destination: document.getElementById("to").value,
+
+    travelMode: google.maps.TravelMode[selectedMode],
+
+  })
+  .then((response) => {
+    directionsRenderer.setDirections(response);
+  })
+  .catch((e) => window.alert("Direction request failed due to" + status));
+}
+
 window.initMap = initMap;
+
+
 
   // Bethany College Cord - 40.20541587198075, -80.55798864037283
                             // 40.20502830903152, -80.55853842938608
