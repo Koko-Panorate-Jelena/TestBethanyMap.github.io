@@ -18,12 +18,19 @@
                 <input type="text" id="from" placeholder="Origin">
             </div>
         </div>
-
+        
         <div>
             <div>
                 <input type="text" id="to" placeholder="Destination">
             </div>
         </div>
+
+        <div>
+            <div>
+                <button id="calculateRouteBtn" class="btn">Get Directions</button>
+            </div>
+        </div>
+
 
         <b>Mode of Travel</b>
         <select id="mode">
@@ -35,17 +42,29 @@
 
     </div>
 
-    <div id="map"></div>
+        <div id="map"></div>
+
+        <button class="btn-2" id="academic">Academic</button>
+        <button class="btn-2" id="administrative">Administrative</button>
+        <button class="btn-2" id="student-spaces">Student Spaces</button>
+        <button class="btn-2" id="athletics">Athletics</button>
+        <button class="btn-2" id="parking-lot">Parking Lot</button>
+
+
+
+
+
+          
+
 
 
 
     <script src="script.js"></script>
 
     <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV9lGYB4-pn947-84BE5P93t-BlJq0OBc&map_ids=fe1884329fa294ee&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV9lGYB4-pn947-84BE5P93t-BlJq0OBc&libraries=places,routes,marker,visualization,search&map_ids=fe1884329fa294ee&callback=initMap">
 </script>
 
 
 </body>
 </html>
-
