@@ -118,3 +118,11 @@ b {
     background-color: #00819D;
 }
 
+#reset {
+    background-color: seagreen;
+}
+
+.btn-2:hover {
+    height: 30px;
+    color: azure;
+}
