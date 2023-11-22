@@ -1,26 +1,4 @@
 
-
-
-// 43.88594274645201, 20.356899288107964
-
-// function initMap() {
-//     new google.maps.Map(document.getElementById("map"), {
-//       mapId: "fe1884329fa294ee",
-//       center: {lat: 40.20502830903152, lng: -80.55853842938608},
-//       zoom: 16,
-//     });
-//   }
-  
-//   window.initMap = initMap;
-
-//   // markers
-
-//   let marker = new google.maps.Marker ({
-//     position: {lat: 40.2048316174204, lng: -80.55808664082726},
-//     map: map,
-//     icon: "https://img.icons8.com/nolan/2x/marker.png"
-//   });
-
 function initMap() {
 
   const directionsRenderer = new google.maps.DirectionsRenderer();
@@ -43,7 +21,7 @@ function initMap() {
   });
 
 
-  // KOD JE DOBAR ZA AUTOCOMPLETE OBA POLJA, ALI NE UCITAVA MARKERE
+
   sourceAutocomplete = new google.maps.places.Autocomplete (document.getElementById('from'));
   desAutocomplete = new google.maps.places.Autocomplete (document.getElementById('to'));
 
@@ -219,6 +197,7 @@ function initMap() {
 
 
   var currentInfoWindow = null;
+  const markerObjects = [];
 
 
   for (let i=0; i<markers.length; i++){
@@ -241,27 +220,7 @@ function initMap() {
     });
 
 
-    // Current Location of Users (if Geolocation is enabled)
 
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(function (p) {
-    //     let position = {
-    //       lat: p.coords.latitude,
-    //       lng: p.coords.longitude
-    //     };
-    //     infowindow.setPosition(position);
-    //     infowindow.setContent("Your Location");
-    //     infowindow.open(map);
-    //   }, function () {
-    //     handleLocationError("Geolocation Service Failed", map.center());
-    //   })
-    // } else {
-    //   handleLocationError("No geolocation available", map.center());
-    // }
-  
-    // marker.addListener("click", () => {
-    //   infowindow.open(map,marker);
-    // });
 
     marker.addListener("click", () => {
       if (currentInfoWindow) {
@@ -273,9 +232,67 @@ function initMap() {
 
     setTimeout (() => {
       marker.setAnimation (null);
-    }, 3000
-    )
+    }, 3000);
+
+    markerObjects.push(marker);
   }
+
+  function showMarkers(group) {
+    hideMarkers();
+    for (let i = 0; i < markerObjects.length; i++) {
+      const marker = markerObjects[i];
+      const isVisible = group.includes(marker.getIcon().url);
+      marker.setVisible(isVisible);
+    }
+  }
+
+  function hideMarkers() {
+    for (let i = 0; i < markerObjects.length; i++) {
+      const marker = markerObjects[i];
+      marker.setVisible(false);
+    }
+
+  }
+
+  function showAllMarkers() {
+    for (let i = 0; i < markerObjects.length; i++) {
+      const marker = markerObjects[i];
+      marker.setVisible(true);
+    }
+  }
+
+  const academicBtns = document.getElementById("academic");
+  academicBtns.addEventListener("click", function () {
+    showMarkers(["images/FINE-ARTS.png", "images/LIBRARY.png", "images/Hall-Of-Science.png", "images/OLD-MAIN.png"]);
+  });
+
+  const administrativeBtns = document.getElementById("administrative");
+  administrativeBtns.addEventListener("click", function () {
+    showMarkers(["images/Hall-2.png", "images/ADMIN-HOUSE.png"]);
+  });
+
+  const studentSpacesBtns = document.getElementById("student-spaces");
+  studentSpacesBtns.addEventListener("click", function () {
+    showMarkers(["images/DORM-1.png", "images/DINING.png"]);
+  });
+
+  const athleticsBtns = document.getElementById("athletics");
+  athleticsBtns.addEventListener("click", function () {
+    showMarkers(["images/SOCCER.png", "images/BASEBALL.png", "images/SOCCER.png"]);
+  });
+
+  const parkingLotBtns = document.getElementById("parking-lot");
+  parkingLotBtns.addEventListener("click", function () {
+    showMarkers("images/PARKING.png");
+  });
+
+  const resetBtn = document.getElementById("reset");
+  resetBtn.addEventListener("click", function () {
+    showAllMarkers();
+  });
+
+
+
 
   google.maps.event.addListener(map, 'click', function () {
     if (currentInfoWindow) {
@@ -285,38 +302,6 @@ function initMap() {
   });
 
 
-  // EARTHQUAKES - DOESN'T WORK
-  // var script = document.createElement('script');
-  // script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
-  // document.getElementsByTagName('head')[0].appendChild(script);
-
-  // function eqfeed_callback (geojson) {
-  //   map.data.addGeoJson(geojson);
-
-  //   map.data.setStyle(function(feature) {
-  //     var magnitude = feature.getProperty('mag');
-  //     return {
-  //       icon: getEarthquakeCircle(magnitude)
-  //     };
-  //   });
-  // }
-
-  
-  
-}
-
-
-  // EARTHQUAKES2 - DOESN'T WORK
-// function getEarthquakeCircle (value) {
-//   return {
-//     path: google.maps.SymbolPath.CIRCLE,
-//     fillColor: 'purple',
-//     fillOpacity: .2,
-//     scale: Math.pow(2, value) / 2,
-//     strokeColor: 'white',
-//     strokeWeight: .5
-//   };
-// }
 
 
 
@@ -334,7 +319,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer){
   .then((response) => {
     directionsRenderer.setDirections(response);
   })
-  .catch((e) => window.alert("Direction request failed due to" + status));
+  // .catch((e) => window.alert("Direction request failed due to" + status));
 
 
 
@@ -350,151 +335,16 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer){
       var near_place = autocomplete.getPlace(); 
     });
   });
+
+  
   
 
 
 }
 
 
-
-
-
 window.initMap = initMap;
 
 
-
-
-
-
-
-
-
-
-// autocomplete objects for all inputs
-
-// let options = {
-//   types: ["(addresses)"]
-// }
-
-// let input1 = document.getElementById("from");
-// let searchBox = new google.maps.places.SearchBox(input1);
-
-// let input2 = document.getElementById("to");
-// let autocomplete2 = new google.maps.places.Autocomplete(input2);
-
-
-// map.addListener('bounds_changed', function() {
-//   searchBox.setBounds(map.getBounds());
-// });
-
-// let markers = [];
-
-// searchBox.addListener('places_changed', function () {
-//   let places = searchBox.getPlaces();
-
-//   if (places.length === 0)
-//     return;
-
-//   markers.forEach(function (m) { m.setMap(null); });
-//   markers = [];
-
-//   let bounds = new google.maps.LatLngBounds();
-//   places.forEach(function(p) {
-//     if (!p.geometry)
-//       return;
-
-//     markers.push(new google.maps.Marker({
-//       map,
-//       title: p.name,
-//       position: p.geometry.location
-//     }));
-
-//     if (p.geometry.viewport)
-//       bounds.union(p.geometry.viewport);
-//     else
-//       bounds.extend(p.geometry.location);
-//   });
-  
-//   map.fitBounds(bounds);
-// });
-
-
-
-
-
-
-
-
-  // Bethany College Cord - 40.20541587198075, -80.55798864037283
-                            // 40.20502830903152, -80.55853842938608
-
-// Test custom marker
-// var customMarker = {
-//   url: 'icons8-church-100.png',
-//   size: new google.maps.Size(32, 32),
-//   origin: new google.maps.Point (0, 0),
-//   anchor: new google.maps.Point (16, 32),
-// };
-
-// var marker = new google.maps.Marker ({
-//   position: new google.maps.LatLng(40.20502830903152, -80.55853842938608),
-//   map,
-//   icon: customMarker,
-//   title: "Koki"
-// });
-
-// let map;
-
-// async function initMap() {
-//   const { Map } = await google.maps.importLibrary("maps");
-
-//   map = new Map(document.getElementById("map"), {
-//     center: { lat: -34.397, lng: 150.644 },
-//     zoom: 8,
-//   });
-// }
-
-// initMap();
-
-// function  initialize () {
-//   let mapOptions = {
-//     center: new google.maps.LatLng (43.8859427464520, 20.356899288107964),
-//     zoom: 8,
-//     mapTypeId: google.maps.MapTypeId.ROADMAP
-//   };
-//   let map = new google.maps.Map(document.getElementById('map'),
-//   mapOptions);
-// }
-
-// onload = 'initialize()'
-
-// Initialize and add the map
-// let map;
-
-// async function initMap() {
-//   // The location of Uluru
-//   const position = { lat: -25.344, lng: 131.031 };
-//   // Request needed libraries.
-//   //@ts-ignore
-//   const { Map } = await google.maps.importLibrary("maps");
-//   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
-//   // The map, centered at Uluru
-//   map = new Map(document.getElementById("map"), {
-//     zoom: 4,
-//     center: position,
-//     mapId: "DEMO_MAP_ID",
-//   });
-
-//   // The marker, positioned at Uluru
-//   const marker = new AdvancedMarkerElement({
-//     map: map,
-//     position: position,
-//     title: "Uluru",
-//   });
-// }
-
-// initMap();
-
-
+}
 
