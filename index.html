@@ -3,69 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Map</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">    <link rel="stylesheet" href="./styles.css">
+    
+    <title>Document</title>
 </head>
-<body>
-    <!-- <div class="logo-text"> -->
-        <!-- <img src="./BC_Logo_WM_2_ST_GREEN.png" alt="logo of bethany college"> -->
-        <!-- <h1>Koka i njegov test</h1> -->
-    <!-- </div> -->
-
-    <div id="floating-panel">
-        <div>
-            <div>
-                <input type="text" id="from" placeholder="Origin">
-            </div>
-        </div>
-        
-        <div>
-            <div>
-                <input type="text" id="to" placeholder="Destination">
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <button id="calculateRouteBtn" class="btn">Get Directions</button>
-            </div>
-        </div>
-
-
-        <b>Mode of Travel</b>
-        <select id="mode">
-            <option value="DRIVING">Driving</option>
-            <option value="WALKING">Walking</option>
-            <option value="BICYCLING">Bicycling</option>
-            <option value="TRANSIT">Transit</option>
-        </select>
-
+<body> 
+    <div class="container">
+        <table class="row justify-content-between table table-bordered table-hover text-center">
+            <th class="table-dark text-light h3" colspan="7">
+                MAŠINSKI PARK
+            </th>
+            <tr class="table-secondary text-light table-active">
+                <th class="align-middle text-left col-2">CNC STRUG</th>
+                <th class="col-1">X <span class="fw-normal"><br> mm</span></th>
+                <th class="col-1">Z <span class="fw-normal"><br> mm</span></th>
+                <th class="col-1">C <span class="fw-normal"><br> °</span></th>
+                <th class="col-1">X1 <span class="fw-normal"><br> mm</span></th>
+                <th class="col-1">Z1 <span class="fw-normal"><br> mm</span></th>
+                <th class="fw-normal col-sm-2">PROLAZ KROZ VRETENO<br>mm</th>
+            </tr>
+            <tr>
+                <td>DMG NEF 600</td>
+                <td>600</td>
+                <td>1250</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>72</td>
+            </tr>
+            <tr>
+                <td>MORI SEIKI ZL 25 M</td>
+                <td>250</td>
+                <td>1000</td>
+                <td>360°</td>
+                <td>300</td>
+                <td>1000</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>NAKAMURA TOME TMC 200</td>
+                <td>300</td>
+                <td>550</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>52</td>
+            </tr>
+            <tr>
+                <td>DAINICHI BX60</td>
+                <td>400</td>
+                <td>750</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>DAINICHI F 250 MCII</td>
+                <td>350</td>
+                <td>600</td>
+                <td>360°</td>
+                <td></td>
+                <td></td>
+                <td>75</td>
+            </tr>
+            <tr>
+                <td>KNUTH STAR CHIP 450</td>
+                <td>250</td>
+                <td>800</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>MIYANO BND 34 T</td>
+                <td>125</td>
+                <td>300</td>
+                <td>360°</td>
+                <td></td>
+                <td>200</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>MIYANO BND 34 T</td>
+                <td>125</td>
+                <td>300</td>
+                <td></td>
+                <td></td>
+                <td>200</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>GOODWAY GLS 150</td>
+                <td>250</td>
+                <td>300</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>GOODWAY GLS 150</td>
+                <td>250</td>
+                <td>300</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>IKEGAI TCR 15</td>
+                <td>250</td>
+                <td>300</td>
+                <td>360°</td>
+                <td></td>
+                <td></td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>CITIZEN L320 VII</td>
+                <td>20</td>
+                <td>200</td>
+                <td>360°</td>
+                <td>20</td>
+                <td>200</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>EMCO TURN 220</td>
+                <td>120</td>
+                <td>160</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>EMCO TURN 220 P</td>
+                <td>120</td>
+                <td>160</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>BOLEY BDN 160 R</td>
+                <td>160</td>
+                <td>450</td>
+                <td>360°</td>
+                <td></td>
+                <td></td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td colspan="7"></td>
+            </tr>
+            <tr class="table-secondary">
+                <th>UNIVERZALNI STRUG</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>PADOVANI LABOR 255</td>
+                <td>500</td>
+                <td>1500</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>105</td>
+            </tr>
+            <tr>
+                <td colspan="7"></td>
+            </tr>
+            <tr class="table-secondary">
+                <th class="align-middle">CNC GLODALICE</th>
+                <th>X <span class="fw-normal"><br>mm</span></th>
+                <th>Y <span class="fw-normal"><br>mm</span></th>
+                <th>Z <span class="fw-normal"><br>mm</span></th>
+                <th>C <span class="fw-normal"><br>°</span></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>MORI SEIKI MV JUNIOR</td>
+                <td>560</td>
+                <td>410</td>
+                <td>460</td>
+                <td>360°</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>MORI SEIKI MV 45</td>
+                <td>600</td>
+                <td>450</td>
+                <td>460</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>VICTOR V CENTAR 4</td>
+                <td>600</td>
+                <td>450</td>
+                <td>460</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>MAHO 600 W</td>
+                <td>600</td>
+                <td>450</td>
+                <td>450</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>MAHO 600 C</td>
+                <td>600</td>
+                <td>450</td>
+                <td>450</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>MAHO 500 W</td>
+                <td>500</td>
+                <td>350</td>
+                <td>350</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="7"></td>
+            </tr>
+            <tr class="table-secondary">
+                <th>AUTOMATSKE TESTERE</th>
+                <th class="fw-normal">mm</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>AMADA HA 250</td>
+                <td>250</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>AMADA HA 250</td>
+                <td>250</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>FORTUNA ITALY</td>
+                <td>100</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>VERTIKALNA TESTERA</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="7"></td>
+            </tr>
+            <tr class="table-secondary">
+                <th class="align-middle">PROVLAKACICA</th>
+                <th></th>
+                <th class="fw-normal">Sirina mm <br> min</th>
+                <th class="fw-normal">max</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>VERTIKALNA</td>
+                <td></td>
+                <td>3</td>
+                <td>16</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th colspan="7"></th>
+            </tr>
+            <tr class="table-secondary">
+                <th>VILJUŠKAR</th>
+                <th>KG</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>TOYOTA 18</td>
+                <td>1800</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>LINDA H25</td>
+                <td>2500</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
 
-        <div id="map"></div>
-
-        <button class="btn-2" id="academic">Academic</button>
-        <button class="btn-2" id="administrative">Administrative</button>
-        <button class="btn-2" id="student-spaces">Student Spaces</button>
-        <button class="btn-2" id="athletics">Athletics</button>
-        <button class="btn-2" id="parking-lot">Parking Lot</button>
-        <button class="btn-2" id="reset">Show All</button>
 
 
-
-
-
-          
-
-
-
-
-    <script src="script.js"></script>
-
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV9lGYB4-pn947-84BE5P93t-BlJq0OBc&libraries=places,routes,marker,visualization,search&map_ids=fe1884329fa294ee&callback=initMap">
-</script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
