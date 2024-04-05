@@ -1,3 +1,5 @@
+
+
 @media screen and (max-width: 575px) {
     .table {
         font-size: 13px;
@@ -10,6 +12,7 @@
     }
     td, th.h3 {
         display: grid;
+        grid-template-columns: 25ch auto;
         text-align: start;
     }
 
@@ -21,7 +24,7 @@
     }
 
     td::before {
-        content: attr(data-cell);
+        content: attr(data-cell) ": ";
         font-weight: 700;
     }
 
