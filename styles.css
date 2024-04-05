@@ -9,7 +9,7 @@
         border: 1px solid grey;
     }
     td, th.h3 {
-        display: block;
+        display: grid;
         text-align: start;
     }
 
